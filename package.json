@@ -1,9 +1,11 @@
 {
-  "name": "click-ff",
-  "title": "click-ff",
+  "name": "pt",
+  "title": "pt",
+  "homepage": "https://github.com/e-shulitsky/pt",
   "id": "jid1-C9hI9XpPa5T0rw",
-  "description": "a basic add-on",
-  "author": "",
+  "description": "Helps track item price",
+  "author": "Yauhen Shulitski",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "permissions": {"private-browsing": true},
+  "version": "1"
 }
