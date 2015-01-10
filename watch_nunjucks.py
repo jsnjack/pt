@@ -53,6 +53,8 @@ def precompile(tempates_dir, filename):
 
 
 if __name__ == '__main__':
+    print "Nunjucks repo directory: ", NUNJUCKS_REPO
+    print "Templates directory: ", TEMPLATES_DIR
     while True:
         check_templates()
         sleep(TIMER)
