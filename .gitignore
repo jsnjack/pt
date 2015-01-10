@@ -4,6 +4,9 @@ addon-sdk-1.17
 # Firefox profile folder
 .cfx_profile
 
+# Compiled addon
+*.xpi
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
