@@ -16,18 +16,22 @@ Pt is a firefox extension that helps you track price change. You can also track 
 
 ![ScreenShot](https://raw.githubusercontent.com/e-shulitsky/pt/master/screenshoots/item_status.png)
 
-##Run extension to preserve settings with command:
+##How to install
+See release section for the latest packed file (.xpi). Open pt.xpi with firefox browser
+
+##For developers
+###Run extension to preserve settings with command:
 ```
 cfx run --profiledir=./.cfx_profile/
 ```
 
-##Name guide
+###Name guide
 - Signals name:
 ```
 who_emmits-name
 ```
 
-##Compile templates on change
+###Compile templates on change
 Set environmental variables `NUNJUCKS_REPO`(path to the cloned nunjucks git repository) and `TEMPLATES_DIR`(path to templates folder) or pass them as command arguments. Then run scripts which will compile templates on change:
 ```
 ./watch_nunjucks.py
