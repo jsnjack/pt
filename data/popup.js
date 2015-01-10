@@ -32,7 +32,7 @@ function bind_item_href(event) {
 function bind_item_mouseover(event) {
     var element = event.target;
     element = get_item_a(element);
-    if (element.className.indexOf("blur") === -1){
+    if (element.className.indexOf("blur") === -1) {
         element.querySelector(".normal").style.display = "none";
         element.querySelector(".on-hover").style.display = "inline-block";
     }
@@ -41,7 +41,7 @@ function bind_item_mouseover(event) {
 function bind_item_mouseout(event) {
     var element = event.target;
     element = get_item_a(element);
-    if (element.className.indexOf("blur") === -1){
+    if (element.className.indexOf("blur") === -1) {
         element.querySelector(".normal").style.display = "block";
         element.querySelector(".on-hover").style.display = "none";
     }
@@ -68,16 +68,16 @@ function bind_item_remove(event) {
             items_link;
         clear_popup();
         //Configure extra filters for nunjucks
-        env.addFilter('remove_currency', function(str) {
+        env.addFilter('remove_currency', function (str) {
             // Check if comma is used as delimiter
             if (str.indexOf(",") > 0) {
-                if (str.split(",")[1].length !== 3 ) {
+                if (str.split(",")[1].length !== 3) {
                     return accounting.unformat(str, ",");
                 }
             }
             return accounting.unformat(str);
         });
-        env.addFilter('extract_currency', function(str, source) {
+        env.addFilter('extract_currency', function (str, source) {
             var currency = source.replace(/[0-9,\.]/g, "");
             if (parseInt(str[0], 10) > 0) {
                 return str + currency;
@@ -85,7 +85,7 @@ function bind_item_remove(event) {
                 return currency + str;
             }
         });
-        env.addFilter('contains_digit', function(str) {
+        env.addFilter('contains_digit', function (str) {
             var test_regexp = new RegExp(/.*(\d+)/);
             return test_regexp.test(str);
         });
@@ -100,7 +100,7 @@ function bind_item_remove(event) {
         document.getElementById("items-list").style.height = item_height * items.length + control_panel_height + "px";
     });
 
-    self.port.on("popup-add-new-item-dialog", function (data){
+    self.port.on("popup-add-new-item-dialog", function (data) {
         console.log("popup: Add items dialog");
         var title_input = document.getElementById("new-item-title-id");
         document.getElementById("show-items").style.display = "none";

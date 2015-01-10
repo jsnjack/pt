@@ -8,7 +8,7 @@
     //##### Get unique selector block #####
     function pt_positionInNodeList(element, nodeList) {
         // Helper for getUniqueSelector function
-        for (var i = 0; i < nodeList.length; i=i + 1) {
+        for (var i = 0; i < nodeList.length; i = i + 1) {
             if (element === nodeList[i]) {
                 return i;
             }
