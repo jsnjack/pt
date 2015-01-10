@@ -24,19 +24,37 @@ output += "\n            blur\n        ";
 ;
 }
 output += "\n        ";
+if(runtime.memberLookup((t_4),"price_change", env.autoesc)) {
+output += "\n            ";
 if(runtime.memberLookup((t_4),"price_change", env.autoesc) == 0) {
-output += "\n            same\n        ";
+output += "\n                same\n            ";
 ;
 }
 else {
 if(runtime.memberLookup((t_4),"price_change", env.autoesc) > 0) {
-output += "\n            higher\n        ";
+output += "\n                higher\n            ";
 ;
 }
 else {
-output += "\n            lower\n        ";
+output += "\n                lower\n            ";
 ;
 }
+;
+}
+output += "\n        ";
+;
+}
+else {
+output += "\n            ";
+if(runtime.memberLookup((t_4),"start_price", env.autoesc) == runtime.memberLookup((t_4),"recent_price", env.autoesc)) {
+output += "\n                same\n            ";
+;
+}
+else {
+output += "\n                lower\n            ";
+;
+}
+output += "\n        ";
 ;
 }
 output += "'\n        href=\"";

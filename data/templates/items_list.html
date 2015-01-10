@@ -3,12 +3,20 @@
         {% if item.status == "updating" %}
             blur
         {% endif %}
-        {% if item.price_change == 0 %}
-            same
-        {% elif item.price_change > 0 %}
-            higher
+        {% if item.price_change %}
+            {% if item.price_change == 0 %}
+                same
+            {% elif item.price_change > 0 %}
+                higher
+            {% else %}
+                lower
+            {% endif %}
         {% else %}
-            lower
+            {% if item.start_price == item.recent_price %}
+                same
+            {% else %}
+                lower
+            {% endif %}
         {% endif %}'
         href="{{ item.href }}">
         <div class="normal">
