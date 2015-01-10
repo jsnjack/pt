@@ -112,8 +112,19 @@ body {
 }
 
 /*Add item dialog*/
+#add-item {
+    background: white;
+    height: 54px;
+}
+#add-item label {
+    font-weight: bold;
+    display: block;
+    padding: 3px 0 3px 5px;
+}
 #new-item-title-id {
-    width: 175px;
+    margin: 0 5px 5px 5px;
+    display: block;
+    width: 332px;
 }
 /*Bottom control panel*/
 
