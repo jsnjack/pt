@@ -1,0 +1,55 @@
+{% for item in items %}
+    <a id="{{ item.id }}" class='item
+        {% if item.status == "updating" %}
+            blur
+        {% endif %}
+        {% if item.price_change == 0 %}
+            same
+        {% elif item.price_change > 0 %}
+            higher
+        {% else %}
+            lower
+        {% endif %}'
+        href="{{ item.href }}">
+        <div class="normal">
+            <div class="item-title-block">
+                <div class="item-title-short">{{ item.title|truncate(40) }}</div>
+                <div class="item-host">{{ item.host|truncate(30) }}</div>
+            </div>
+            <div class="item-price">{{ item.recent_price }}</div>
+        </div>
+        <div class="on-hover">
+            <table>
+                <tr>
+                    <td class="price-cell hover-start">{{ item.start_price|truncate(30) }}</td>
+                    <td rowspan="2" class="hover-price-change
+                                           {% if item.price_change > 0 %}
+                                                price-up
+                                           {% elif item.price_change < 0 %}
+                                                price-down
+                                           {% endif %}
+                                           ">
+                        {% if item.recent_price|contains_digit %}
+                            {% if item.price_change > 0 %}
+                                +{{ item.price_change|round }}%
+                            {% else %}
+                                {{ item.price_change|round }}%
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="price-cell hover-recent">{{ item.recent_price|truncate(40) }}</td>
+                </tr>
+            </table>
+            <div class="remove-item">
+              x
+            </div>
+            {% if item.price_change < 0 %}
+                <div class="save-money">
+                    Save {{ (item.start_price|remove_currency - item.recent_price|remove_currency)|round|extract_currency(item.recent_price) }}
+                </div>
+            {% endif %}
+        </div>
+    </a>
+{% endfor %}

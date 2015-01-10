@@ -1,0 +1,133 @@
+/*Remove firefox default panel margins*/
+body {
+    margin: 0;
+}
+.control-panel {
+    position: fixed;
+    background: #fd7f00;
+    width: 100%;
+    height: 35px;
+    bottom: 0;
+}
+.control-panel a:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#items-list {
+    overflow: auto;
+}
+.item {
+    display: inline-block;
+    text-decoration: none;
+    background: white;
+    width: calc(100% - 20px);
+    height: 50px;
+    padding: 10px;
+    border-left-width: 3px;
+    border-left-style: solid;
+}
+/*Recent price vs start price:*/
+.same {
+    border-left-color: grey;
+}
+.lower {
+    border-left-color: green;
+}
+.higher {
+    border-left-color: red;
+}
+/*************************/
+
+.item-title-block {
+    display: inline-block;
+}
+.item-title-short {
+    color: #292929;
+    font-size: small;
+}
+.item-host {
+    color: #7c7c7c;
+    font-size: xx-small;
+}
+.item-price {
+    color: #292929;
+    font-weight: bold;
+}
+
+/*Updating effect*/
+.blur  {
+    text-shadow: 0 0 5px #000;
+    border-left-style: none;
+}
+.blur .item-title-short {
+    color: transparent;
+}
+.blur .item-host {
+    color: transparent;
+}
+.blur .item-price {
+    color: rgba(41, 41, 41, 0);
+    text-shadow: 0 0 5px #292929;
+}
+/*************************/
+.on-hover {
+    display: none;
+    position: relative;
+}
+.hover-price-change {
+    font-weight: bold;
+    font-size: x-large;
+    color: #292929;
+}
+.price-cell {
+    width: 400px;
+}
+.hover-start {
+    text-decoration: line-through;
+    color: #7c7c7c;
+    font-size: medium;
+}
+.hover-recent {
+    color: #292929;
+    font-weight: bold;
+}
+.price-up {
+    color: red;
+}
+.price-down {
+    color: green;
+}
+.remove-item {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    color: red;
+}
+.save-money {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    color: green;
+}
+
+/*Add item dialog*/
+#new-item-title-id {
+    width: 175px;
+}
+/*Bottom control panel*/
+
+.fa-refresh, .fa-plus {
+    color: white;
+}
+.fa-circle {
+    color: #ffa74f;
+}
+.pt-title {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}

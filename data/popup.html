@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link href="popup.css" type="text/css" rel="stylesheet">
+    <link href="./extras/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="show-items">
+        <div id="items-list"></div>
+        <div class="control-panel">
+            <a id="inject-button">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-plus fa-stack-1x"></i>
+              </span>
+            </a>
+            <a id="update-button">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-refresh fa-stack-1x"></i>
+              </span>
+            </a>
+            <span class="pt-title">pt</span>
+        </div>
+    </div>
+    <div id="add-item" style="display: none;">
+        <label for="new-item-title-id">New item title:</label>
+        <input id="new-item-title-id" type="text" name="new-item-title" />
+        <button id="add-item-button">Add</button>
+    </div>
+</body>
+
+</html>
