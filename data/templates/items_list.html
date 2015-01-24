@@ -1,4 +1,6 @@
 {% for item in items %}
+    {% set start_price = item.history|first|get_price %}
+    {% set recent_price = item.history|last|get_price %}
     <a id="{{ item.id }}" class='item
         {% if item.status == "updating" %}
             blur
@@ -12,7 +14,7 @@
                 lower
             {% endif %}
         {% else %}
-            {% if item.history|first|get_price == item.history|last|get_price %}
+            {% if start_price == recent_price %}
                 same
             {% else %}
                 lower
@@ -24,12 +26,12 @@
                 <div class="item-title-short">{{ item.title|truncate(40) }}</div>
                 <div class="item-host">{{ item.host|truncate(30) }}</div>
             </div>
-            <div class="item-price">{{ item.history|last|get_price }}</div>
+            <div class="item-price">{{ recent_price }}</div>
         </div>
         <div class="on-hover">
             <table>
                 <tr>
-                    <td class="price-cell hover-start">{{ item.history|first|get_price|truncate(30) }}</td>
+                    <td class="price-cell hover-start">{{ start_price|truncate(30) }}</td>
                     <td rowspan="2" class="hover-price-change
                                            {% if item.price_change > 0 %}
                                                 price-up
@@ -37,7 +39,7 @@
                                                 price-down
                                            {% endif %}
                                            ">
-                        {% if item.history|last|get_price|contains_digit %}
+                        {% if recent_price|contains_digit %}
                             {% if item.price_change > 0 %}
                                 +{{ item.price_change|round }}%
                             {% else %}
@@ -47,7 +49,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="price-cell hover-recent">{{ item.history|last|get_price|truncate(40) }}</td>
+                    <td class="price-cell hover-recent">{{ recent_price|truncate(40) }}</td>
                 </tr>
             </table>
             <div class="remove-item">
@@ -55,7 +57,7 @@
             </div>
             {% if item.price_change < 0 %}
                 <div class="save-money">
-                    Save {{ (item.history|first|get_price|remove_currency - item.history|last|get_price|remove_currency)|round|extract_currency(item.history|last|get_price) }}
+                    Save {{ (start_price|remove_currency - recent_price|remove_currency)|round|extract_currency(recent_price) }}
                 </div>
             {% endif %}
         </div>
