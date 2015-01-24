@@ -89,6 +89,12 @@ function bind_item_remove(event) {
             var test_regexp = new RegExp(/.*(\d+)/);
             return test_regexp.test(str);
         });
+        env.addFilter('get_price', function (obj) {
+            return obj.price;
+        });
+        env.addFilter('get_date', function (obj) {
+            return obj.date;
+        });
         document.getElementById("items-list").innerHTML = env.render("items_list.html", {"items": items});
         items_link = document.getElementsByClassName("item");
         for (var i = 0, len = items_link.length; i < len; i = i + 1) {

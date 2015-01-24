@@ -46,7 +46,7 @@ output += "\n        ";
 }
 else {
 output += "\n            ";
-if(runtime.memberLookup((t_4),"start_price", env.autoesc) == runtime.memberLookup((t_4),"recent_price", env.autoesc)) {
+if(env.getFilter("get_price").call(context, env.getFilter("first").call(context, runtime.memberLookup((t_4),"history", env.autoesc))) == env.getFilter("get_price").call(context, env.getFilter("last").call(context, runtime.memberLookup((t_4),"history", env.autoesc)))) {
 output += "\n                same\n            ";
 ;
 }
@@ -64,9 +64,9 @@ output += runtime.suppressValue(env.getFilter("truncate").call(context, runtime.
 output += "</div>\n                <div class=\"item-host\">";
 output += runtime.suppressValue(env.getFilter("truncate").call(context, runtime.memberLookup((t_4),"host", env.autoesc),30), env.autoesc);
 output += "</div>\n            </div>\n            <div class=\"item-price\">";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"recent_price", env.autoesc), env.autoesc);
+output += runtime.suppressValue(env.getFilter("get_price").call(context, env.getFilter("last").call(context, runtime.memberLookup((t_4),"history", env.autoesc))), env.autoesc);
 output += "</div>\n        </div>\n        <div class=\"on-hover\">\n            <table>\n                <tr>\n                    <td class=\"price-cell hover-start\">";
-output += runtime.suppressValue(env.getFilter("truncate").call(context, runtime.memberLookup((t_4),"start_price", env.autoesc),30), env.autoesc);
+output += runtime.suppressValue(env.getFilter("truncate").call(context, env.getFilter("get_price").call(context, env.getFilter("first").call(context, runtime.memberLookup((t_4),"history", env.autoesc))),30), env.autoesc);
 output += "</td>\n                    <td rowspan=\"2\" class=\"hover-price-change\n                                           ";
 if(runtime.memberLookup((t_4),"price_change", env.autoesc) > 0) {
 output += "\n                                                price-up\n                                           ";
@@ -80,7 +80,7 @@ output += "\n                                                price-down\n       
 ;
 }
 output += "\n                                           \">\n                        ";
-if(env.getFilter("contains_digit").call(context, runtime.memberLookup((t_4),"recent_price", env.autoesc))) {
+if(env.getFilter("contains_digit").call(context, env.getFilter("get_price").call(context, env.getFilter("last").call(context, runtime.memberLookup((t_4),"history", env.autoesc))))) {
 output += "\n                            ";
 if(runtime.memberLookup((t_4),"price_change", env.autoesc) > 0) {
 output += "\n                                +";
@@ -98,15 +98,17 @@ output += "\n                        ";
 ;
 }
 output += "\n                    </td>\n                </tr>\n                <tr>\n                    <td class=\"price-cell hover-recent\">";
-output += runtime.suppressValue(env.getFilter("truncate").call(context, runtime.memberLookup((t_4),"recent_price", env.autoesc),40), env.autoesc);
+output += runtime.suppressValue(env.getFilter("truncate").call(context, env.getFilter("get_price").call(context, env.getFilter("last").call(context, runtime.memberLookup((t_4),"history", env.autoesc))),40), env.autoesc);
 output += "</td>\n                </tr>\n            </table>\n            <div class=\"remove-item\">\n              x\n            </div>\n            ";
 if(runtime.memberLookup((t_4),"price_change", env.autoesc) < 0) {
 output += "\n                <div class=\"save-money\">\n                    Save ";
-output += runtime.suppressValue(env.getFilter("extract_currency").call(context, env.getFilter("round").call(context, (env.getFilter("remove_currency").call(context, runtime.memberLookup((t_4),"start_price", env.autoesc)) - env.getFilter("remove_currency").call(context, runtime.memberLookup((t_4),"recent_price", env.autoesc)))),runtime.memberLookup((t_4),"recent_price", env.autoesc)), env.autoesc);
+output += runtime.suppressValue(env.getFilter("extract_currency").call(context, env.getFilter("round").call(context, (env.getFilter("remove_currency").call(context, env.getFilter("get_price").call(context, env.getFilter("first").call(context, runtime.memberLookup((t_4),"history", env.autoesc)))) - env.getFilter("remove_currency").call(context, env.getFilter("get_price").call(context, env.getFilter("last").call(context, runtime.memberLookup((t_4),"history", env.autoesc)))))),env.getFilter("get_price").call(context, env.getFilter("last").call(context, runtime.memberLookup((t_4),"history", env.autoesc)))), env.autoesc);
 output += "\n                </div>\n            ";
 ;
 }
 output += "\n        </div>\n    </a>\n";
+output += runtime.suppressValue(runtime.memberLookup((t_4),"history", env.autoesc), env.autoesc);
+output += "\n";
 ;
 }
 }
