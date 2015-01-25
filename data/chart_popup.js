@@ -18,8 +18,8 @@
             high: Math.max.apply(null, chart_data.price_list) * 1.1,
             showArea: true,
             lineSmooth: false,
-            width: "500px",
-            height: "300px"
+            width: 500,
+            height: 300
         });
     });
 })();
