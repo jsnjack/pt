@@ -108,6 +108,7 @@ body {
     top: -5px;
     right: 0;
     color: red;
+    font-weight: bold;
 }
 .save-money {
     position: absolute;
