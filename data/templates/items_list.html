@@ -33,7 +33,7 @@
                 <tr>
                     <td class="price-cell hover-start">{{ start_price|truncate(30) }}</td>
                     <td rowspan="2">
-                        {% if recent_price|contains_digit %}
+                        {% if start_price|contains_digit %}
                             <i class="fa fa-area-chart fa-2x"></i>
                         {% endif %}
                     </td>

@@ -109,8 +109,10 @@ function bind_chart_click(event) {
             items_link[i].addEventListener("mouseover", bind_item_mouseover);
             items_link[i].addEventListener("mouseout", bind_item_mouseout);
             items_link[i].querySelector(".remove-item").addEventListener("click", bind_item_remove);
-            items_link[i].querySelector(".fa-area-chart").addEventListener("click", bind_chart_click);
-            items_link[i].querySelector(".fa-area-chart").storage_item = items[i];
+            if (items_link[i].querySelector(".fa-area-chart")) {
+                items_link[i].querySelector(".fa-area-chart").addEventListener("click", bind_chart_click);
+                items_link[i].querySelector(".fa-area-chart").storage_item = items[i];
+            }
         }
         document.getElementById("items-list").style.height = item_height * items.length + control_panel_height + "px";
     });
