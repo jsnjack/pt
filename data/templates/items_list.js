@@ -83,7 +83,12 @@ output += "</div>\n            </div>\n            <div class=\"item-price\">";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "recent_price"), env.autoesc);
 output += "</div>\n        </div>\n        <div class=\"on-hover\">\n            <table>\n                <tr>\n                    <td class=\"price-cell hover-start\">";
 output += runtime.suppressValue(env.getFilter("truncate").call(context, runtime.contextOrFrameLookup(context, frame, "start_price"),30), env.autoesc);
-output += "</td>\n                    <td rowspan=\"2\"><i class=\"fa fa-area-chart fa-2x\"></i></td>\n                    <td rowspan=\"2\" class=\"hover-price-change\n                                           ";
+output += "</td>\n                    <td rowspan=\"2\">\n                        ";
+if(env.getFilter("contains_digit").call(context, runtime.contextOrFrameLookup(context, frame, "recent_price"))) {
+output += "\n                            <i class=\"fa fa-area-chart fa-2x\"></i>\n                        ";
+;
+}
+output += "\n                    </td>\n                    <td rowspan=\"2\" class=\"hover-price-change\n                                           ";
 if(runtime.memberLookup((t_4),"price_change", env.autoesc) > 0) {
 output += "\n                                                price-up\n                                           ";
 ;
