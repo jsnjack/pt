@@ -38,6 +38,11 @@ body {
     border-left-color: red;
 }
 /*************************/
+/*Chart button*/
+.fa-area-chart {
+    color: grey;
+}
+/*************************/
 
 .item-title-block {
     display: inline-block;
