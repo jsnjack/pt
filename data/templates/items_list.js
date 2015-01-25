@@ -123,8 +123,6 @@ output += "\n                </div>\n            ";
 ;
 }
 output += "\n        </div>\n    </a>\n";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"history", env.autoesc), env.autoesc);
-output += "\n";
 ;
 }
 }
