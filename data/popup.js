@@ -55,6 +55,13 @@ function bind_item_remove(event) {
     pt_sendSignal("popup-remove-item", element.id);
 }
 
+function bind_chart_click(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var element = event.target;
+    pt_sendSignal("chart_popup-show", element.storage_item);
+}
+
 (function () {
     console.log("popup: Initializing popup...");
     var item_height = 70,
@@ -102,6 +109,8 @@ function bind_item_remove(event) {
             items_link[i].addEventListener("mouseover", bind_item_mouseover);
             items_link[i].addEventListener("mouseout", bind_item_mouseout);
             items_link[i].querySelector(".remove-item").addEventListener("click", bind_item_remove);
+            items_link[i].querySelector(".fa-area-chart").addEventListener("click", bind_chart_click);
+            items_link[i].querySelector(".fa-area-chart").storage_item = items[i];
         }
         document.getElementById("items-list").style.height = item_height * items.length + control_panel_height + "px";
     });
