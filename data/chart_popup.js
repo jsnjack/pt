@@ -2,14 +2,15 @@
 
 (function () {
     
-    self.port.on("chart_popup-draw", function(chart_data) {
+    self.port.on("chart_popup-draw", function (chart_data) {
         console.log("chart_popup: Draw chart...");
         new Chartist.Line('.ct-chart', {
             labels: chart_data.date_list,
             series: [
                 chart_data.price_list
             ]
-            }, {
+        },
+            {
             axisX: {
                 showLabel: false,
                 showGrid: false
