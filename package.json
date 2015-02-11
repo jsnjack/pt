@@ -5,8 +5,8 @@
   "id": "jid1-C9hI9XpPa5T0rw",
   "description": "Helps track item price",
   "author": "Yauhen Shulitski",
-  "license": "MPL 2.0",
+  "license": "MIT",
   "permissions": {"private-browsing": true},
   "icon": "data/icon-64.png",
-  "version": "1.1"
+  "version": "1.1.1"
 }
